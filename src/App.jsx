@@ -7,7 +7,7 @@ import PersonCard from "./components/PersonCard";
 function App() {
   // const names = ["Emil", "Emil", "Lars", "Sofie", "Jonas", "Mina"];
 
-  const filteredList = people.filter((person) => person.id !== 1);
+  const filteredList = people.filter((person) => person.id === 1);
   const sortedList = [...people].sort((a, z) => (a.id - z.id) * -1).slice(0, 3);
   const mappedArry = people.map((person) =>
     person.id == 1 ? { ...person, name: "lars" } : person
@@ -15,7 +15,7 @@ function App() {
 
   return (
     <>
-      {mappedArry.map((person) => (
+      {filteredList.map((person) => (
         <PersonCard key={person.id} {...person} />
       ))}
     </>
